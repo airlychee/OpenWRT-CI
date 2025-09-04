@@ -1,0 +1,26 @@
+name: build-jdc
+
+on:
+  workflow_dispatch:
+
+jobs:
+  build:
+    strategy:
+      fail-fast: false
+      matrix:
+        cfg: [IPQ60XX-WIFI-NO, IPQ60XX-WIFI-YES]
+
+    uses: ./.github/workflows/WRT-CORE.yml
+    with:
+      WRT_CONFIG:  ${{ matrix.cfg }}
+      WRT_THEME:   argon
+      WRT_NAME:    JDC
+      WRT_SSID:    JDC
+      WRT_WORD:    password
+      WRT_IP:      10.10.20.253
+      WRT_PW:      admin
+      WRT_REPO:    https://github.com/immortalwrt/immortalwrt.git
+      WRT_BRANCH:  openwrt-24.10
+      WRT_SOURCE:  qualcommax/ipq60xx
+
+
