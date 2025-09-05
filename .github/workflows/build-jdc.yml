@@ -22,5 +22,7 @@ jobs:
       WRT_REPO:    https://github.com/immortalwrt/immortalwrt.git
       WRT_BRANCH:  openwrt-24.10
       WRT_SOURCE:  qualcommax/ipq60xx
+      WRT_PACKAGE: |
+        CONFIG_PACKAGE_qmodem=n
 
 
