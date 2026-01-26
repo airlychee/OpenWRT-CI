@@ -11,6 +11,16 @@
 # 关闭 BPF/LLVM（会显著拖慢编译）
 # CONFIG_BPF_TOOLCHAIN_BUILD_LLVM is not set
 
+# 1) 砍 Ruby（大）
+# CONFIG_PACKAGE_ruby is not set
+
+# 3) 砍 SIT 隧道（如果你不用 6in4/HE.net）
+# CONFIG_PACKAGE_kmod-sit is not set
+
+# 4) 加 ttyd（强烈建议）
+CONFIG_PACKAGE_ttyd=y
+CONFIG_PACKAGE_luci-app-ttyd=y
+
 #科学插件调整
 CONFIG_PACKAGE_luci-app-homeproxy=n
 CONFIG_PACKAGE_luci-app-openclash=y
