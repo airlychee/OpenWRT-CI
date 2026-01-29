@@ -2,8 +2,9 @@
 CONFIG_PACKAGE_luci-app-homeproxy=n
 CONFIG_PACKAGE_luci-app-openclash=y
 CONFIG_PACKAGE_luci-proto-wireguard=y
-CONFIG_PACKAGE_luci-app-mosdns=y
+CONFIG_PACKAGE_luci-app-mosdns=n
 CONFIG_PACKAGE_xray-core=y
+CONFIG_PACKAGE_avahi-utils=y
 
 #增加插件
 CONFIG_PACKAGE_luci-app-autoreboot=y
