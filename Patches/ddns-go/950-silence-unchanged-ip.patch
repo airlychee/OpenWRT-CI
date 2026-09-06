@@ -1,0 +1,20 @@
+--- a/util/messages.go
++++ b/util/messages.go
+@@ -123,6 +123,17 @@
+ }
+ 
+ func Log(key string, args ...interface{}) {
++	// Suppress only unchanged-IP notices, before translation. Keep all other logs.
++	switch key {
++	case "IPv4未改变, 将等待 %d 次后与DNS服务商进行比对",
++		"IPv6未改变, 将等待 %d 次后与DNS服务商进行比对",
++		"你的IP %s 没有变化, 域名 %s",
++		"IP %s 没有变化，域名 %s",
++		"你的IPv4未变化, 未触发 %s 请求",
++		"你的IPv6未变化, 未触发 %s 请求",
++		"你的IP %s 没有变化, EdgeOne 源站组 %s":
++		return
++	}
+ 	log.Println(LogStr(key, args...))
+ }
+ 
