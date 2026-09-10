@@ -4,21 +4,6 @@
 
 PKG_PATH="$GITHUB_WORKSPACE/wrt/package"
 
-#在软件包更新后安装源码补丁，由 OpenWrt 在解包后、编译前自动应用。
-#路径与 Packages.sh 中 sirpdboy/luci-app-ddns-go 的克隆位置一致。
-DDNS_GO_DIR="$PKG_PATH/luci-app-ddns-go/ddns-go"
-DDNS_GO_PATCH="$GITHUB_WORKSPACE/Patches/ddns-go/950-silence-unchanged-ip.patch"
-if [ ! -f "$DDNS_GO_DIR/Makefile" ] || [ ! -s "$DDNS_GO_PATCH" ]; then
-	echo "ddns-go package or unchanged-IP patch missing; check Packages.sh and Patches/ddns-go!" >&2
-	exit 1
-fi
-if ! mkdir -p "$DDNS_GO_DIR/patches" ||
-	! cp "$DDNS_GO_PATCH" "$DDNS_GO_DIR/patches/950-silence-unchanged-ip.patch"; then
-	echo "failed to install ddns-go unchanged-IP patch!" >&2
-	exit 1
-fi
-echo "ddns-go unchanged-IP patch installed; other logs remain enabled."
-
 #预置HomeProxy数据
 HP_DIR="$(find "$PKG_PATH" -maxdepth 3 -type d -iname '*homeproxy*' -print -quit 2>/dev/null)"
 if [ -n "$HP_DIR" ]; then
