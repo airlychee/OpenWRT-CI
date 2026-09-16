@@ -1,8 +1,9 @@
 #自定义插件
+CONFIG_PACKAGE_mdns-repeater=y
 CONFIG_PACKAGE_luci-app-openclash=y
 CONFIG_PACKAGE_luci-proto-wireguard=y
 CONFIG_PACKAGE_xray-core=y
-CONFIG_PACKAGE_avahi-utils=y
+#CONFIG_PACKAGE_avahi-utils=y
 CONFIG_PACKAGE_tcpdump=y
 CONFIG_PACKAGE_v2ray-geosite=y
 CONFIG_PACKAGE_v2ray-geoip=y
